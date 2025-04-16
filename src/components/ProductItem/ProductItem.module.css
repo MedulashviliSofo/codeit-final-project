@@ -1,0 +1,74 @@
+.itemContainer {
+    height: 380px;
+    width: 240px;
+    border: 1px solid transparent;
+    padding: 8px 10px;
+    background-color: white;
+}
+
+.itemContainer:hover {
+    border: 1px solid skyblue;
+}
+
+.imageContainer {
+    height: 160px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 0;
+    height: 42px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.desc {
+    font-size: 0.8rem;
+    line-height: 16px;
+    text-align: justify;
+    height: 80px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    font-weight: 400;
+    color: rgb(124, 124, 124);
+    margin-top: 20px;
+}
+
+.priceContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 62px;
+}
+
+.price {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.ratingWrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.rating {
+    font-weight: 600;
+    font-size: 1rem;
+    color: rgb(225, 217, 0);
+    background-color: rgb(75, 95, 134);
+    padding: 4px;
+}
+
+.ratingCount {
+    font-size: 0.8rem;
+    padding-top: 4px;
+}

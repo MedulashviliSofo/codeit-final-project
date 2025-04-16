@@ -1,3 +1,7 @@
+import ProductItem from "@/components/ProductItem/ProductItem";
+import styles from "./page.module.css";
+import Link from "next/link";
+
 const Products = async () => {
     let products;
     try {
@@ -8,11 +12,11 @@ const Products = async () => {
     }
 
     return (
-        <div>
+        <div className={styles.container}>
           {products.map((product) => (
-            <section key={product.id}>
-                <p>{product.title}</p>
-            </section>
+            <Link href={`/products/details/A${product.id}`}>
+              <ProductItem key={product.id} item={product}/>
+            </Link>  
           ))}
         </div>
     );
