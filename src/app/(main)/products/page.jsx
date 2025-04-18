@@ -14,8 +14,8 @@ const Products = async () => {
     return (
         <div className={styles.container}>
           {products.map((product) => (
-            <Link href={`/products/details/${product.id}`}>
-              <ProductItem key={product.id} item={product}/>
+            <Link key={product.id} href={`/products/details/${product.id}`}>
+              <ProductItem item={product}/>
             </Link>  
           ))}
         </div>
