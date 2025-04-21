@@ -1,39 +1,76 @@
 "use client";
-import { useState } from "react"; 
 import styles from "./page.module.css";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [login, setLogin] = useState(true);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const [email, setEmail] = useState("");
   const router = useRouter();
 
   const handleLoginChange = () => {
-    return setLogin(!login);
+    setLogin(!login);
+    setUsername("");
+    setPassword("");
+    setEmail("");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    try {
+    if (login) {
       fetch("https://fakestoreapi.com/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           username: username,
-          password: "m38rmF$",
+          password: 'm38rmF$',
         }),
       })
         .then((res) => res.json())
         .then((res) => {
           if (res.token) {
             router.replace("/products");
-          }
+          } 
+        })
+        .catch((error) => {
+          console.log(error.message);
         });
-    } catch (error) {
-      console.log(error.message);
+    } else {
+      fetch("https://fakestoreapi.com/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email,
+          username: username,
+          password: password,
+          name: {
+            firstname: "Test",
+            lastname: "User",
+          },
+          address: {
+            city: "Tbilisi",
+            street: "Main St",
+            number: 1,
+            zipcode: "0100",
+            geolocation: {
+              lat: "0",
+              long: "0",
+            },
+          },
+          phone: "555123456",
+        }),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          console.log(res);
+          router.replace("/products");
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
     }
   };
 
@@ -43,44 +80,72 @@ export default function Home() {
         {login ? (
           <>
             <h3 className={styles.signin}>Sign In</h3>
-            <p className={styles.desc}>Please sign in to access market</p>
-            <input 
-              onChange={(event) => {
-                return setUsername(event.target.value);
-              }} 
-              className={styles.input} 
-              placeholder="username"
+            <p className={styles.desc}>Please sign in to access market.</p>
+            <input
+              onChange={(e) => setUsername(e.target.value)}
+              className={styles.input}
+              value={username}
+              placeholder="Username"
+              required
             />
             <input
-              onChange={(event) => {
-                return setPassword(event.target.value);
-              }}
-              className={styles.input} 
-              type="password" 
-              placeholder="password"
+              onChange={(e) => setPassword(e.target.value)}
+              className={styles.input}
+              type="password"
+              value={password}
+              placeholder="Password"
+              required
             />
             <button className={styles.button} type="submit">
-              Sign in
+              Sign In
             </button>
-            <button 
-              onClick={handleLoginChange} 
+            <button
+              type="button"
+              onClick={handleLoginChange}
               className={styles.notRegistered}
             >
-              Not Registered? Sign Up
+              Not registered? Sign up
             </button>
-          </> 
-        ) : ( 
+          </>
+        ) : (
           <>
-          <h3 className={styles.signup}>Sign Up</h3>
-          <button 
-              onClick={handleLoginChange} 
+            <h3 className={styles.signin}>Sign Up</h3>
+            <p>Please sign up to access market.</p>
+            <input
+              onChange={(e) => setUsername(e.target.value)}
+              className={styles.input}
+              value={username}
+              placeholder="Username"
+              required
+            />
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              className={styles.input}
+              value={email}
+              placeholder="Email"
+              required
+            />
+            <input
+              onChange={(e) => setPassword(e.target.value)}
+              className={styles.input}
+              type="password"
+              value={password}
+              placeholder="Password"
+              required
+            />
+            <button className={styles.button} type="submit">
+              Sign up
+            </button>
+            <button
+              type="button"
+              onClick={handleLoginChange}
               className={styles.notRegistered}
             >
-              Already Registered? Sign In
+              Already registered? Sign in
             </button>
           </>
         )}
       </form>
-   </main>
+    </main>
   );
-};
+}
