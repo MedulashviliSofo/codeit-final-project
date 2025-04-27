@@ -5,6 +5,16 @@ import { usePathname } from "next/navigation";
 
 function layout({ children }) {
   const pathname = usePathname();
+  console.log('client');
+
+  console.log('cleanup');
+  console.log('cleanup');
+  console.log('cleanup');
+  console.log('cleanup');
+  console.log('cleanup');
+  console.log('cleanup');
+  console.log('cleanup');
+  console.log('cleanup');
 
     return (
       <div className={styles.container}>
