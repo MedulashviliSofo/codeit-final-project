@@ -5,16 +5,6 @@ import { usePathname } from "next/navigation";
 
 function layout({ children }) {
   const pathname = usePathname();
-  console.log('client');
-
-  console.log('cleanup');
-  console.log('cleanup');
-  console.log('cleanup');
-  console.log('cleanup');
-  console.log('cleanup');
-  console.log('cleanup');
-  console.log('cleanup');
-  console.log('cleanup');
 
     return (
       <div className={styles.container}>
@@ -40,6 +30,17 @@ function layout({ children }) {
             href="/profile"
           >
             Profile
+          </Link>
+          <Link 
+            className={`
+              ${styles.link}
+              ${
+                pathname.includes("/cart") ? styles.activeLink : styles.inActiveLink
+              }`
+            }
+            href="/cart"
+          >
+            Cart
           </Link>
         </nav>
         {children} 
