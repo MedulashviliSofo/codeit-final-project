@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import AddToCart from "@/components/AddToCart/AddToCart";
 
 async function page  ({params})  {
     let products;
@@ -11,19 +12,20 @@ async function page  ({params})  {
         throw Error(error);
     }
 
-    const item = products.find((p) => p.id == id);
+    const product = products.find((p) => p.id == id);
 
     return (
         <section className={styles.container}>
-        <h1 className={styles.title}>{item.title}</h1>
+        <h1 className={styles.title}>{product.title}</h1>
         <div className={styles.imageWrapper}>
-          <Image src={item.image} width={120} height={140} alt={item.title} />
+          <Image src={product.image} width={120} height={140} alt={product.title} />
         </div>
-        <p className={styles.description}>{item.description}</p>
-        <p className={styles.price}>Price:{item.price}$</p>
+        <p className={styles.description}>{product.description}</p>
+        <p className={styles.price}>Price:{product.price}$</p>
         <div className={styles.ratingWrapper}>
-            <p className={styles.rating}>{item.rating.rate}/5</p>
-            <p className={styles.ratingCount}>{item.rating.count} reviews</p>
+            <p className={styles.rating}>{product.rating.rate}/5</p>
+            <p className={styles.ratingCount}>{product.rating.count} reviews</p>
+            <AddToCart product={product} />
         </div>
       </section>
     )
