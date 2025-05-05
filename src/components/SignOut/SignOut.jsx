@@ -1,5 +1,5 @@
 "use client";
-
+import styles from "./SignOut.module.css";
 import { useRouter } from "next/navigation";
 
 const SignOut = () => {
@@ -8,7 +8,7 @@ const SignOut = () => {
     localStorage.removeItem("user");
     router.replace("/");
   };
-  return <button onClick={handleSignOut}>Sign Out</button>
+  return <button onClick={handleSignOut} className={styles.button}>Sign Out</button>
 };
 
 export default SignOut;

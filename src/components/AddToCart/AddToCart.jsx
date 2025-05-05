@@ -1,4 +1,5 @@
 "use client";
+import styles from "./AddToCart.module.css";
 
 function AddToCart( {product} ) {
   const handleAddCart = async () => {
@@ -22,7 +23,7 @@ function AddToCart( {product} ) {
     }
   };
 
-  return <button onClick={handleAddCart}>Add to Cart</button>;
+  return <button onClick={handleAddCart} className={styles.button}>Add to Cart</button>;
 }
 
 export default AddToCart;
