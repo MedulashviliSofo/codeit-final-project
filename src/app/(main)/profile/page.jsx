@@ -1,6 +1,6 @@
-
 import Image from "next/image";
 import styles from "./page.module.css";
+import SignOut from "@/components/SignOut/SignOut";
 
 const Profile = async () => {
   let profile;
@@ -14,6 +14,7 @@ const Profile = async () => {
   } catch (error) {
     throw Error(error);
   }
+
 
   return (
     <div className={styles.container}>
@@ -60,6 +61,7 @@ const Profile = async () => {
         <p>{profile.company.address.address}, {profile.company.address.state}, {profile.company.address.country}</p>
       </div>
       </section>
+      <SignOut />
     </div>
   );
 };
