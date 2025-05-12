@@ -1,5 +1,7 @@
 .container {
     display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     justify-content: center;
 }
 
@@ -33,3 +35,16 @@
     border: 1px solid black;
     color: rgb(96, 96, 96);
 }
+
+
+.footer {
+  padding: 20px;
+  text-align: center;
+  background-color: #f3f3f3;
+  color: #555;
+  margin-top: auto;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+  line-height: 1.6;
+}
+

@@ -32,12 +32,20 @@
     setCartProducts(products);
     localStorage.setItem("products", JSON.stringify([...products]));
    };
+
+   const handleRemoveProduct = async (product) => {
+  const products = await JSON.parse(localStorage.getItem("products"));
+  const updatedProducts = products.filter((item) => item.product.id !== product.id);
+
+  setCartProducts(updatedProducts);
+  localStorage.setItem("products", JSON.stringify(updatedProducts));
+};
  
    return (
      <div className={styles.container}>
             {cartProducts?.map((prod) => (
-              console.log(prod),
-         <div key={prod.id} className={styles.itemWrapper}>
+       
+       <div key={prod.product.id} className={styles.itemWrapper}>
            <Image
              src={prod.product.image}
              width={70}
@@ -47,12 +55,14 @@
            <div>
              <h4> {prod.product.title}</h4>
              <br />
-             <p>{prod.count} ცალი</p>
+             <p>${prod.product.price}</p>
            </div>
            <div className={styles.buttonWrapper}>
-             <button onClick={() => handleAddOne(prod.product)} className={styles.Button}>add 1</button>
-             <button onClick={() => handleRemoveOne(prod.product)} className={styles.Button}>remove 1</button>
+             <button onClick={() => handleAddOne(prod.product)} className={styles.Button1}>+</button>
+             <p className={styles.Button}>{prod.count}</p>
+             <button onClick={() => handleRemoveOne(prod.product)} className={styles.Button1}>-</button>
            </div>
+           <button onClick={() => handleRemoveProduct(prod.product)} className={styles.removeButton}>🗑️</button>
          </div>
        ))}
      </div>

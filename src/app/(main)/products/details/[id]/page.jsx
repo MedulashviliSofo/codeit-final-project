@@ -23,7 +23,7 @@ async function page  ({params})  {
         <p className={styles.description}>{product.description}</p>
         <p className={styles.price}>Price:{product.price}$</p>
         <div className={styles.ratingWrapper}>
-            <p className={styles.rating}>{product.rating.rate}/5</p>
+            <p className={styles.rating}>⭐️{product.rating.rate}/5</p>
             <p className={styles.ratingCount}>{product.rating.count} reviews</p>
             <AddToCart product={product} />
         </div>

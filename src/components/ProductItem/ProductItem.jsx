@@ -17,7 +17,7 @@ function ProductItem({ item }) {
       <div className={styles.priceContainer}>
         <h4 className={styles.price}>{item.price}$</h4>
         <div className={styles.ratingWrapper}>
-            <p className={styles.rating}>{item.rating.rate}/5</p>
+            <p className={styles.rating}>{item.rating.rate}/5 ⭐️</p>
             <p className={styles.ratingCount}>{item.rating.count} reviews</p>
         </div>
       </div>

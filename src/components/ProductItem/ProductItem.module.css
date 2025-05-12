@@ -1,13 +1,13 @@
 .itemContainer {
     height: 380px;
-    width: 240px;
+    width: 260px;
     border: 1px solid transparent;
     padding: 8px 10px;
     background-color: white;
 }
 
 .itemContainer:hover {
-    border: 1px solid skyblue;
+    border: 1px solid rgb(107, 107, 107);
 }
 
 .imageContainer {
@@ -26,6 +26,7 @@
     height: 42px;
     overflow: hidden;
     margin-bottom: 10px;
+    background-color: rgb(238, 238, 238);
 }
 
 .desc {

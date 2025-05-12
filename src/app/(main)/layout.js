@@ -44,6 +44,10 @@ function layout({ children }) {
           </Link>
         </nav>
         {children} 
+        <footer className={styles.footer}>
+          <p>© {new Date().getFullYear()} My Store. All rights reserved.</p>
+          <p>Made with ❤️ by Me</p>
+        </footer>
       </div>
     );
 }

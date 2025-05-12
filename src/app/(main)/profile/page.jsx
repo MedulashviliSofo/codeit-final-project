@@ -21,43 +21,43 @@ const Profile = async () => {
       <Image src={profile.image} className={styles.image} alt="Profile Image" width={100} height={100} />
       <section className={styles.section}>
       <div className={styles.infoWrapper}>
-        <p>სახელი</p>
+        <p>👤 სახელი:</p>
         <p>{profile.firstName}</p>
       </div>
       <div className={styles.infoWrapper}>
-        <p>მაიდენნეიმი</p>
+        <p>👤 მაიდენნეიმი:</p>
         <p>{profile.maidenName}</p>
       </div>
       <div className={styles.infoWrapper}>
-        <p>გვარი</p>
+        <p>👤 გვარი:</p>
         <p>{profile.lastName}</p>
       </div>
       <div className={styles.infoWrapper}>
-        <p>ტელეფონი</p>
+        <p>📞 ტელეფონი:</p>
         <p>{profile.phone}</p>
       </div>
       <div className={styles.infoWrapper}>
-        <p>მეილი</p>
+        <p>✉️ მეილი:</p>
         <p>{profile.email}</p>
       </div>
       <div className={styles.infoWrapper}>
-        <p>დაბადების თარიღი</p>
+        <p>📅 დაბადების თარიღი:</p>
         <p>{profile.birthDate}</p>
       </div>
       <div className={styles.infoWrapper}>
-        <p>მისამართი</p>
+        <p>🏠 მისამართი:</p>
         <p>{profile.address.address}, {profile.address.state}, {profile.address.country}</p>
       </div>
       <div className={styles.infoWrapper}>
-        <p>უნივერსიტეტი</p>
+        <p>🎓 უნივერსიტეტი:</p>
         <p>{profile.university}</p>
       </div>
       <div className={styles.infoWrapper}>
-        <p>კომპანია</p>
+        <p>🏢 კომპანია:</p>
         <p>{profile.company.name}</p>
       </div>
       <div className={styles.infoWrapper}>
-        <p>კომპანიის მისამართი</p>
+        <p>🏢 კომპანიის მისამართი:</p>
         <p>{profile.company.address.address}, {profile.company.address.state}, {profile.company.address.country}</p>
       </div>
       </section>

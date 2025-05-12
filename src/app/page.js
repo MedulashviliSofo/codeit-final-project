@@ -79,6 +79,7 @@ export default function Home() {
         .then((res) => res.json())
         .then((res) => {
           console.log(res);
+          localStorage.setItem("user", JSON.stringify(res.token));
           router.replace("/products");
         })
         .catch((error) => {
